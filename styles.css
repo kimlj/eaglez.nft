@@ -1,0 +1,382 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+  }
+body{
+    width: 100%;
+}
+
+/*FONTS*/
+@font-face {
+    font-family:  badabb_;
+    src: url(fonts/BADABB__.TTF);
+}
+@font-face {
+    font-family:  gladiator;
+    src: url(fonts/GLADIATOR\ SPORT-Bold.otf);
+}
+@font-face {
+    font-family:  organo;
+    src: url(fonts/Organo.ttf);
+}
+@font-face {
+    font-family:  opensans;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+@font-face {
+    font-family: optien;
+    src: url(fonts/Optien.ttf);
+}
+@font-face {
+    font-family: ormont;
+    src: url(fonts/Ormont_Light.ttf);
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    z-index: 9999;
+    
+}
+header.sticky{
+    padding: 40px;
+    background: black;
+}
+
+/* ======================================================= */
+/* NAVIGATION */
+header ul{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+    /* gap: 30px; */
+    
+    right: 50px;
+}
+header ul li{
+    position: relative;
+    list-style: none;
+
+}
+header ul li a{
+    position: relative;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    font-family: gladiator ;
+    text-decoration: none;
+    line-height: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: 0.6s;
+
+    /* transparent outline */
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(2555, 255, 255, 0.5);
+}
+
+
+/* COLOR EFFECTS */
+/* capture color using variable from li style in html file --clr */
+nav ul li a::before{
+    content: attr(data-text);
+    position: absolute;
+    color: var(--clr); 
+    width: 0;
+    overflow: hidden;
+
+    /* vertical line / border */
+    border-right:  6px solid var(--clr);
+    -webkit-text-stroke: 1px var(--clr);
+
+    transition: 0.8s;
+}
+/* to fill color of a::before */
+ul li a:hover::before{
+    width: 100%;
+
+    /* glowing shadow */
+    filter: drop-shadow(0 0 25px var(--clr));
+}
+
+
+/* ======================================================================================= */
+/* RGB CLASS AD ON FOR LETTERS */
+.rgb-letter{
+    color: rgb(207,207,207);
+    /* linear gradient */
+    background: linear-gradient(to right, #ff0000,
+    #ff9a00,
+    #d0de21,
+    #4fdc4a,
+    #3fdad8,
+    #2fc9e2,
+    #1c7fee,
+    #5f15f2,
+    #ba0cf8,
+    #fb07d9,
+    #ff0000);
+
+    /* make text transparent */
+    -webkit-text-fill-color: transparent;
+
+    /* make background transparent, emboss colors */
+    -webkit-background-clip: text;
+}
+
+/* ======================================================================================= */
+/* SECTION MINT */
+.section__mint{
+    background: linear-gradient(#fff0 0%, #fff0 80%, black 100%),url("images/background_11.jpg");
+    background-size: cover;
+}
+
+.stayfly{
+    position:relative;
+    text-align: center;
+    top: 10rem;
+}
+
+.stayfly img{
+    height: 100px;
+    width: 450px;
+}
+
+.eaglez__container{
+    position: relative;
+    top: 5rem;
+    /* width: 100%; */
+    /* height: 120vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/*Grid layout for each cards/eagles*/
+.eaglez{
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 250px 50px 150px 50px 60px;
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: #1d1d1d;
+    color: gray;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+    margin-top: 125px;
+
+    transition: 0.5s;
+    cursor: pointer;
+
+    margin-left: 30px;
+
+    /*3d parallax*/
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    
+
+}
+/*Images*/
+div[class^="eaglez__image"]{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+.eaglez__image--1{
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url("images/eaglez_gif1.gif");
+}
+.eaglez__image--69{
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("images/eaglez_gif2.gif");
+}
+.eaglez__image--666{
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("images/eaglez_gif3.gif");
+}
+
+/*RANK*/
+div[class^="eaglez__rank"]{
+    margin: 25px;
+    font-size: 22px;
+    font-family: optien;
+    /*parallax effect*/
+    transform:translateZ(30px);
+}
+.eaglez__rank--1{ 
+    color: rgb(233,129,163);
+}
+.eaglez__rank--69{
+    color: rgb(195,54,209);
+}
+.eaglez__rank--666{  
+    color: rgb(19,82,220);
+}
+
+/*INFO*/
+div[class^="eaglez__info"]{
+    font-size: 18px;
+    margin-top: 22px;
+
+    /*parallax effect*/
+    transform:translateZ(30px);
+}
+.eaglez__info{
+    margin:10px 20px;
+    /*parallax effect*/
+    transform:translateZ(30px);
+}
+
+/*PRICE*/
+div[class^="eaglez__price"]{
+    margin-top: 35px;
+    font-weight: 600;
+    font-size: 20px ;
+    font-family: optien;
+
+    /*parallax effect*/
+    transform:translateZ(30px);
+}
+.eaglez__price--1{
+    color: rgb(233,129,163);
+}
+.eaglez__price--69{
+    color: rgb(195,54,209);
+}
+.eaglez__price--666{
+    color: rgb(19,82,220);
+}
+
+/*BUY*/
+/* div[class^="eaglez__buy"]{
+    grid-area: buy;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color:white;
+    font-size: 30px;
+}
+.eaglez__buy--1{
+    background-color: rgb(233,129,163); 
+}
+.eaglez__buy--69{
+    background-color: rgb(195,54,209);
+}
+.eaglez__buy--666{
+    background-color: rgb(19,82,220);
+} */
+
+/* Hover effects
+.eaglez:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+} */
+
+/*
+Match the border radius of the eaglez cards
+*/
+.js-tilt-glare{
+    border-radius: 18px;
+}
+
+
+/* ======================================================================================= */
+/*
+RGB
+*/
+
+.rgb::after{
+    content: "";
+    background: linear-gradient(45deg,
+    #ff0000 0%,
+    #ff9a00 10%,
+    #d0de21 20%,
+    #4fdc4a 30%,
+    #3fdad8 40%,
+    #2fc9e2 50%,
+    #1c7fee 60%,
+    #5f15f2 70%,
+    #ba0cf8 80%,
+    #fb07d9 90%,
+    #ff0000 100%
+    )
+    repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: -3px;
+    animation:  rgb 6s linear infinite;
+    border-radius: 16px;
+    filter: blur(10px);
+    transform: translateZ(-1px);
+}
+
+
+/*
+Animation
+*/
+
+@keyframes rgb {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.black__fill{
+    height: 100px;
+    background-color: black;
+}
+
+
+/* ======================================================================================= */
+/* SECTION LORE*/
+section{
+    height: 100vh;
+}
+
+.section__lore{
+    background: linear-gradient(#fff0 0%, #fff0 60%, black 100%),url(images/background_9.jpg);
+}
+
+.lore__container{
+    padding-left: 50px;
+    width: 60%;
+    height: 100vh;
+
+}
+.lore__title{
+    font-family: gladiator;
+    padding-left: 30px;
+    padding-top: 60px;
+    font-size: 75px;
+    color: rgb(224,219,217);
+}
+
+.lore__text{
+    color: rgb(224,219,217);
+    font-family:optien;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+
+/* ======================================================================================= */
+/* SECTION TRAILER */
+.section__roadmap{
+    /* background-color: black; */
+    background: url(images/background_12.jpg);
+    background-size: cover;
+}
